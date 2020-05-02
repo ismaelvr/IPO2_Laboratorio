@@ -1,4 +1,4 @@
-name: navigation_drawer_ejemplo
+name: pr_ipo2
 description: A new Flutter project.
 
 # The following defines the version and build number for your application.
@@ -14,7 +14,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:
@@ -39,12 +39,17 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  assets:
-      - logo.png
+
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #  - images/a_dot_burr.jpeg
-  #  - images/a_dot_ham.jpeg
+  assets:
+        - bisbal.png
+        - logo.png
+        - golo.png
+        - iglesiavalde.png
+        - puertasantamaria.png
+        - villarrubia.png
+        - sanjuandeavila.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,4 +1,4 @@
-package com.example.navigation_drawer_ejemplo
+package com.example.pr_ipo2
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

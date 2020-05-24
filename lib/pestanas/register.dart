@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toast/toast.dart';
-
+import '../BaseAuth.dart';
 
 class Register extends StatefulWidget {
   Register({Key key, this.title}) : super(key: key);
@@ -11,6 +10,9 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final Auth _auth = Auth();
+  //String error = '';
+  final _formKey = GlobalKey<FormState>();
   TextStyle style = TextStyle(fontSize: 20.0);
   TextEditingController textFieldController = TextEditingController();
 
@@ -27,16 +29,7 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-   /* void _comprobarLogin(_usuario, _contrasena) {
-      if (_usuario == "Pedro" && _contrasena == "1234") {
-        print("Login correcto");
-        _irRutaHome(context);
-      } else {
-        print("Login incorrecto");
-      }
-    }
-*/
-    final usuarioField = TextField(
+    final usuarioField = TextFormField(
       obscureText: false,
       style: style,
       decoration: InputDecoration(
@@ -46,13 +39,16 @@ class _RegisterState extends State<Register> {
           hintText: "Usuario",
           border:
               OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
-      onChanged: (String data) {
-        _usuario = data;
+      validator: (val) => val.isEmpty ? 'Debes introducir un email' : null,
+      onChanged: (val) {
+        setState(() => _usuario = val);
       },
     );
-
-    final contrasenaField = TextField(
+    final contrasenaField = TextFormField(
       obscureText: true,
+      validator: (val) => val.length < 6
+          ? 'La contraseña debe tener más de 6 caracteres'
+          : null,
       style: style,
       decoration: InputDecoration(
           fillColor: Colors.white,
@@ -61,23 +57,55 @@ class _RegisterState extends State<Register> {
           hintText: "Contraseña",
           border:
               OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
-      onChanged: (String data) {
-        _contrasena = data;
+      onChanged: (val) {
+        setState(() => _contrasena = val);
       },
     );
-    final registerButon = Material(
+
+    final loginButon = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(30.0),
       color: Color(0xff01A0C7),
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () {
-          Toast.show("¡¡REGISTRADO CON ÉXITO!!", context, duration: Toast.LENGTH_LONG, gravity:  Toast.BOTTOM);
-          Navigator.pop(context);
-          //_irRutaRegister(context);
-         },
-        child: Text("Registrar",
+        onPressed: () async {
+          if (_formKey.currentState.validate()) {
+            AlertDialog dialogo = new AlertDialog(
+              content: new Text('Cuenta creada correctamente.'),
+              actions: <Widget>[
+                new FlatButton(
+                    onPressed: () async {
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                    },
+                    child: new Text("Ok")),
+              ],
+            );
+
+            showDialog(context: context, child: dialogo);
+            dynamic result = await _auth.signUp(_usuario, _contrasena);
+            if (result == null) {
+              setState(() {
+                AlertDialog dialogo = new AlertDialog(
+                  content: new Text('No se ha podido crear la cuenta.'),
+                  actions: <Widget>[
+                    new FlatButton(
+                        onPressed: () async {
+                          Navigator.pop(context);
+                        },
+                        child: new Text("Ok")),
+                  ],
+                );
+
+                showDialog(context: context, child: dialogo);
+              });
+            } else {
+              //_irRutaHome(context);
+            }
+          }
+        },
+        child: Text("Login",
             textAlign: TextAlign.center,
             style: style.copyWith(
                 color: Colors.white, fontWeight: FontWeight.bold)),
@@ -99,7 +127,6 @@ class _RegisterState extends State<Register> {
                 color: Colors.white, fontWeight: FontWeight.bold)),
       ),
     );
-    
 
     return Scaffold(
       backgroundColor: Colors.orange,
@@ -122,31 +149,19 @@ class _RegisterState extends State<Register> {
                 ),
                 Padding(padding: const EdgeInsets.only(bottom: 20.0)),
                 SizedBox(height: 45.0),
-                Text("Introduzca un nombre de usuario:",
-                
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
-                fontWeight: FontWeight.bold
-              )),
-               Padding(padding: const EdgeInsets.only(bottom: 6.0)),
-                usuarioField,
-                SizedBox(height: 8.0),
-                Text("Introduzca una contraseña:",
-                
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
-                fontWeight: FontWeight.bold
-              )),
-               Padding(padding: const EdgeInsets.only(bottom: 6.0)),
-                contrasenaField,
-                SizedBox(
-                  height: 35.0,
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(height: 20.0),
+                      usuarioField,
+                      SizedBox(height: 20.0),
+                      contrasenaField,
+                      SizedBox(height: 20.0),
+                    ],
+                  ),
                 ),
-                registerButon,
+                loginButon,
                 Padding(padding: const EdgeInsets.only(bottom: 15)),
                 cancelButon,
                 SizedBox(
@@ -159,4 +174,12 @@ class _RegisterState extends State<Register> {
       )),
     );
   }
+
+  /*void _irRutaHome(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Principal(),
+        ));
+  }*/
 }

@@ -1,16 +1,14 @@
 import "package:flutter/material.dart";
+import 'package:pr_ipo2/interfaces/interfazGrupos.dart';
 import 'package:pr_ipo2/objetos/drawer.dart';
-import 'package:pr_ipo2/interfaces/interfazGuias.dart';
 
-//import 'barrabusqueda.dart';
-
-class Guias extends StatefulWidget {
-  static const nombreRuta = "/guias";
+class Grupos extends StatefulWidget {
+  static const nombreRuta = "/grupos";
   @override
-  _GuiasState createState() => _GuiasState();
+  _GruposState createState() => _GruposState();
 }
 
-class _GuiasState extends State<Guias> {
+class _GruposState extends State<Grupos> {
   void _ayuda(BuildContext context) {
     AlertDialog dialogo = new AlertDialog(
       content: new Text('AYUDA: En implementación'),
@@ -59,11 +57,11 @@ class _GuiasState extends State<Guias> {
                 },
               )
             ],
-            title: new Text("Guías"),
+            title: new Text("Grupos"),
             backgroundColor: Colors.orange,
           ),
           drawer: new Drawer(child: DrawerVista()),
-          body: new InterfazGuias(),
+          body: new InterfazGrupos(),
           //body: Busqueda(),
         ));
   }

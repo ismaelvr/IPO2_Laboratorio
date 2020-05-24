@@ -23,6 +23,7 @@ dependencies:
   firebase_core: ^0.4.4+3  # add dependency for Firebase Core
   firebase_auth: ^0.16.0
   firebase_database: ^3.1.5
+  flappy_search_bar: 1.4.1
 
 
   # The following adds the Cupertino Icons font to your application.

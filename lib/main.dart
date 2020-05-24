@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pr_ipo2/BaseAuth.dart';
 import 'package:pr_ipo2/pestanas/guias.dart';
+import 'package:pr_ipo2/pestanas/grupos.dart';
 import 'package:pr_ipo2/pestanas/principal.dart';
 import 'package:pr_ipo2/pestanas/proximasrutas.dart';
 import 'package:pr_ipo2/pestanas/rutasrealizadas.dart';
 import 'package:pr_ipo2/pestanas/register.dart';
 import 'package:flutter/services.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
           ProximasRutas.nombreRuta: (BuildContext context) =>
               new ProximasRutas(),
           Guias.nombreRuta: (BuildContext context) => new Guias(),
+          Grupos.nombreRuta: (BuildContext context) => new Grupos(),
         });
   }
 }
@@ -48,10 +49,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   TextStyle style = TextStyle(fontSize: 20.0);
-  TextEditingController textFieldController = TextEditingController();
+  TextEditingController contrasenaController = TextEditingController();
+  TextEditingController usuarioController = TextEditingController();
 
   final Auth _auth = Auth();
-  //String error = '';
   final _formKey = GlobalKey<FormState>();
   String _usuario = "";
   String _contrasena = "";
@@ -67,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final usuarioField = TextFormField(
+      controller: usuarioController,
       obscureText: false,
       style: style,
       decoration: InputDecoration(
@@ -82,6 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
     final contrasenaField = TextFormField(
+      controller: contrasenaController,
       obscureText: true,
       validator: (val) => val.length < 6
           ? 'La contraseña debe tener más de 6 caracteres'
@@ -110,6 +113,8 @@ class _MyHomePageState extends State<MyHomePage> {
           if (_formKey.currentState.validate()) {
             dynamic result =
                 await _auth.signInWithEmailAndPassword(_usuario, _contrasena);
+            usuarioController.clear();
+            contrasenaController.clear();
             if (result == null) {
               setState(() {
                 AlertDialog dialogo = new AlertDialog(

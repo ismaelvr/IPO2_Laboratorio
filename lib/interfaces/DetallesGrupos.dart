@@ -1,21 +1,20 @@
 import "package:flutter/material.dart";
-import 'package:pr_ipo2/objetos/rutasProximas.dart';
+import 'package:pr_ipo2/objetos/grupo.dart';
 
-class DetallesRutaProxima extends StatefulWidget {
-  final RutaProxima ruta;
-
-  DetallesRutaProxima({this.ruta});
+class DetallesGrupos extends StatefulWidget {
+  final Grupo grupo;
+  DetallesGrupos({this.grupo});
   @override
-  _DetallesRutaProximaState createState() => _DetallesRutaProximaState();
+  _DetallesGruposState createState() => _DetallesGruposState();
 }
 
-class _DetallesRutaProximaState extends State<DetallesRutaProxima> {
+class _DetallesGruposState extends State<DetallesGrupos> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
           backgroundColor: Colors.orange,
-          title: new Text(widget.ruta.nombre),
+          title: new Text(widget.grupo.id),
         ),
         body: new Container(
             padding: const EdgeInsets.only(top: 6.0),
@@ -29,7 +28,7 @@ class _DetallesRutaProximaState extends State<DetallesRutaProxima> {
                         // FOTO
                         new Container(
                             child: Image(
-                          image: AssetImage(widget.ruta.foto),
+                          image: AssetImage(widget.grupo.foto),
                           width: 200,
                           height: 200,
                         )),
@@ -44,77 +43,38 @@ class _DetallesRutaProximaState extends State<DetallesRutaProxima> {
                                       Padding(
                                           padding: const EdgeInsets.fromLTRB(
                                               0, 15, 0, 8)),
-                                      nuevaFila("ID ", Icons.account_box,
-                                          widget.ruta.id),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 15, 0, 8)),
                                       nuevaFila(
-                                          "Seleccionado",
+                                          "ID ",
                                           Icons.account_box,
-                                          widget.ruta.isSelected.toString()),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Fecha ", Icons.calendar_today,
-                                          widget.ruta.fecha),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila(
-                                          "Precio ",
-                                          Icons.attach_money,
-                                          widget.ruta.precio.toString() +
-                                              " euros"),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Idiomas ", Icons.language,
-                                          widget.ruta.idiomas.toString()),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila(
-                                          "Lugares de interés ",
-                                          Icons.golf_course,
-                                          widget.ruta.lugaresInteres
+                                          widget.grupo.restricciones
                                               .toString()),
                                       Padding(
                                           padding: const EdgeInsets.fromLTRB(
                                               0, 8, 0, 8)),
-                                      nuevaFila(
-                                          "Duración ",
-                                          Icons.timer,
-                                          widget.ruta.duracion.toString() +
-                                              " horas"),
+                                      nuevaFila("Fecha ", Icons.calendar_today,
+                                          widget.grupo.intereses.toString()),
                                       Padding(
                                           padding: const EdgeInsets.fromLTRB(
                                               0, 8, 0, 8)),
-                                      nuevaFila(
-                                          "Vehículos ",
-                                          Icons.local_airport,
-                                          widget.ruta.vehiculos.toString()),
+                                      nuevaFila("Precio ", Icons.attach_money,
+                                          widget.grupo.tamano.toString()),
                                       Padding(
                                           padding: const EdgeInsets.fromLTRB(
                                               0, 8, 0, 8)),
-                                      nuevaFila(
-                                          "Plazas ",
-                                          Icons.format_list_numbered,
-                                          widget.ruta.plazas.toString() +
-                                              " personas"),
+                                      nuevaFila("Idiomas ", Icons.language, ""),
                                       Padding(
                                           padding: const EdgeInsets.fromLTRB(
                                               0, 8, 0, 8)),
-                                      nuevaFila("Descripción ",
-                                          Icons.description, ""),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      Text(widget.ruta.descripcion,
+                                      Text(widget.grupo.idioma,
                                           textAlign: TextAlign.justify,
                                           style: TextStyle(
                                               fontStyle: FontStyle.italic,
                                               fontWeight: FontWeight.bold)),
+                                      Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              0, 8, 0, 8)),
+                                      nuevaFila("Lugares de interés ",
+                                          Icons.local_airport, ""),
                                       Padding(
                                           padding: const EdgeInsets.fromLTRB(
                                               0, 8, 0, 8)),

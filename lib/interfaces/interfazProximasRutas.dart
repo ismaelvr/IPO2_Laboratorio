@@ -12,7 +12,6 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
 
   @override
   void initState() {
-
     super.initState();
     rutas = <RutaProxima>[
       RutaProxima(
@@ -26,8 +25,9 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           ["Suecia", "Venecia"],
           4,
           "assets/iglesiavalde.png",
-          ["Autobús","Bicicleta"]),
-        RutaProxima(
+          false,
+          ["Autobús", "Bicicleta"]),
+      RutaProxima(
           "La mancha",
           "63224",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas",
@@ -38,8 +38,9 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           ["Suecia", "Venecia"],
           4,
           "assets/villarrubia.png",
-          ["Autobús","Bicicleta"]),
-        RutaProxima(
+          false,
+          ["Autobús", "Bicicleta"]),
+      RutaProxima(
           "Ruta ER CAMPO",
           "98272",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas",
@@ -50,8 +51,9 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           ["Suecia", "Venecia"],
           4,
           "assets/sanjuandeavila.png",
-          ["Autobús","Bicicleta"]),
-        RutaProxima(
+          false,
+          ["Autobús", "Bicicleta"]),
+      RutaProxima(
           "Santa María",
           "00912",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas",
@@ -62,8 +64,9 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           ["Suecia", "Venecia"],
           4,
           "assets/puertasantamaria.png",
-          ["Autobús","Bicicleta"]),
-          RutaProxima(
+          false,
+          ["Autobús", "Bicicleta"]),
+      RutaProxima(
           "Ruta de Palencia",
           "99833",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas",
@@ -74,8 +77,9 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           ["Suecia", "Venecia"],
           4,
           "assets/iglesiavalde.png",
-          ["Autobús","Bicicleta"]),
-        RutaProxima(
+          false,
+          ["Autobús", "Bicicleta"]),
+      RutaProxima(
           "Ruta de Vélez",
           "11122",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas",
@@ -86,8 +90,9 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           ["Suecia", "Venecia"],
           4,
           "assets/villarrubia.png",
-          ["Autobús","Bicicleta"]),
-        RutaProxima(
+          false,
+          ["Autobús", "Bicicleta"]),
+      RutaProxima(
           "Ruta el as de la manga",
           "66532",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas",
@@ -98,8 +103,9 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           ["Suecia", "Venecia"],
           4,
           "assets/sanjuandeavila.png",
-          ["Autobús","Bicicleta"]),
-        RutaProxima(
+          false,
+          ["Autobús", "Bicicleta"]),
+      RutaProxima(
           "Ruta del Cristo",
           "82917",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas",
@@ -110,8 +116,9 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           ["Suecia", "Venecia"],
           4,
           "assets/puertasantamaria.png",
-          ["Autobús","Bicicleta"]),
-          RutaProxima(
+          false,
+          ["Autobús", "Bicicleta"]),
+      RutaProxima(
           "Ruta cascabel",
           "16328",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas",
@@ -122,8 +129,9 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           ["Suecia", "Venecia"],
           4,
           "assets/iglesiavalde.png",
-          ["Autobús","Bicicleta"]),
-        RutaProxima(
+          false,
+          ["Autobús", "Bicicleta"]),
+      RutaProxima(
           "La mancha",
           "63224",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas",
@@ -134,8 +142,9 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           ["Suecia", "Venecia"],
           4,
           "assets/villarrubia.png",
-          ["Autobús","Bicicleta"]),
-        RutaProxima(
+          false,
+          ["Autobús", "Bicicleta"]),
+      RutaProxima(
           "Ruta ER CAMPO",
           "98272",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas",
@@ -146,8 +155,9 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           ["Suecia", "Venecia"],
           4,
           "assets/sanjuandeavila.png",
-          ["Autobús","Bicicleta"]),
-        RutaProxima(
+          false,
+          ["Autobús", "Bicicleta"]),
+      RutaProxima(
           "Santa María",
           "00912",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas",
@@ -158,8 +168,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           ["Suecia", "Venecia"],
           4,
           "assets/puertasantamaria.png",
-          ["Autobús","Bicicleta"]),
-        
+          false,
+          ["Autobús", "Bicicleta"]),
     ];
   }
 

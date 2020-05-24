@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 //enum Acciones { si, no }
 
 class InterfazPrincipal extends StatelessWidget {
@@ -72,7 +71,6 @@ class InterfazPrincipal extends StatelessWidget {
                   foto: "assets/bisbal.png"),
             ),
 
-            
             // LOGOUT //
             new Container(
                 padding: const EdgeInsets.fromLTRB(35, 15, 35, 0),

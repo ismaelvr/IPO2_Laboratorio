@@ -5,11 +5,11 @@ class Guia {
   int _sueldo;
   double _valoracion;
   String _descripcion;
-  List<String> _idiomas;
+  String _idiomas;
   String _foto;
 
   Guia(String nombre, String id, String correo, int sueldo, double valoracion,
-      String descripcion, List<String> idiomas, String foto) {
+      String descripcion, String idiomas, String foto) {
     this._nombre = nombre;
     this._id = id;
     this._correo = correo;
@@ -26,6 +26,6 @@ class Guia {
   int get sueldo => _sueldo;
   double get valoracion => _valoracion;
   String get descripcion => _descripcion;
-  List<String> get idiomas => _idiomas;
+  String get idiomas => _idiomas;
   String get foto => _foto;
 }

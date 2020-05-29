@@ -1,24 +1,24 @@
 import "package:flutter/material.dart";
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:pr_ipo2/interfaces/ModificarRutaProxima.dart';
-//import 'package:pr_ipo2/pestanas/maps.dart';
-import 'package:pr_ipo2/objetos/rutasProximas.dart';
+import 'package:pr_ipo2/interfaces/EnviarPromociones.dart';
+import 'package:pr_ipo2/interfaces/ModificarGuia.dart';
+import 'package:pr_ipo2/interfaces/ModificarPromocion.dart';
+import 'package:pr_ipo2/objetos/promocion.dart';
 import 'package:toast/toast.dart';
 
-class DetallesRutaProxima extends StatefulWidget {
-  final RutaProxima rutaProxima;
-
-  DetallesRutaProxima({this.rutaProxima});
+class DetallesPromocion extends StatefulWidget {
+  final Promocion promocion;
+  DetallesPromocion({this.promocion});
   @override
-  _DetallesRutaProximaState createState() => _DetallesRutaProximaState();
+  _DetallesPromocionState createState() => _DetallesPromocionState();
 }
 
-class _DetallesRutaProximaState extends State<DetallesRutaProxima> {
+class _DetallesPromocionState extends State<DetallesPromocion> {
   @override
   Widget build(BuildContext context) {
-    void _eliminarRuta(BuildContext context) {
+    void _eliminarPromocion(BuildContext context) {
       AlertDialog dialogo = new AlertDialog(
-        content: new Text('¿Está seguro de que desea eliminar esta ruta?'),
+        content: new Text('¿Está seguro de que desea eliminar esta promoción?'),
         actions: <Widget>[
           new FlatButton(
               onPressed: () {
@@ -30,7 +30,7 @@ class _DetallesRutaProximaState extends State<DetallesRutaProxima> {
                 Navigator.pop(context);
                 Navigator.pop(context);
 
-                Toast.show("Ruta eliminada correctamente", context, duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                Toast.show("Promoción eliminada correctamente", context, duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
               },
               child: new Text("Confirmar")),
         ],
@@ -42,25 +42,25 @@ class _DetallesRutaProximaState extends State<DetallesRutaProxima> {
       appBar: new AppBar(
         actions: [
           IconButton(
-            tooltip: "Modificar ruta",
+            tooltip: "Modificar promoción",
             icon: Icon(Icons.mode_edit),
             onPressed: () {
               //_mofidicarGrupo(context);
-              Route ruta = new MaterialPageRoute(builder: (context) => new ModificarRutaProxima(widget.rutaProxima));
+              Route ruta = new MaterialPageRoute(builder: (context) => new ModificarPromocion(widget.promocion));
 
               Navigator.push(context, ruta);
               //ModificarGrupo(widget.grupo);
             },
           ),
           IconButton(
-            tooltip: "Eliminar ruta",
+            tooltip: "Eliminar promoción",
             icon: Icon(Icons.delete),
             onPressed: () {
-              _eliminarRuta(context);
+              _eliminarPromocion(context);
             },
           )
         ],
-        title: new Text(widget.rutaProxima.nombre),
+        title: new Text(widget.promocion.nombre),
         backgroundColor: Colors.orange,
       ),
       body: new Container(
@@ -75,7 +75,7 @@ class _DetallesRutaProximaState extends State<DetallesRutaProxima> {
                       // FOTO
                       new Container(
                           child: Image(
-                        image: AssetImage(widget.rutaProxima.foto),
+                        image: AssetImage(widget.promocion.foto),
                         width: 200,
                         height: 200,
                       )),
@@ -85,45 +85,32 @@ class _DetallesRutaProximaState extends State<DetallesRutaProxima> {
                               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: new Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
                                 Padding(padding: const EdgeInsets.fromLTRB(0, 15, 0, 8)),
-                                nuevaFila("ID ", Icons.account_box, widget.rutaProxima.id),
-                                Padding(padding: const EdgeInsets.fromLTRB(0, 15, 0, 8)),
-                                nuevaFila("Fecha ", Icons.calendar_today, widget.rutaProxima.fecha),
+                                nuevaFila("ID ", Icons.account_box, widget.promocion.id),
                                 Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
-                                nuevaFila("Precio ", Icons.attach_money, widget.rutaProxima.precio.toString() + " euros"),
+                                nuevaFila("Idiomas ", Icons.language, widget.promocion.idiomas),
                                 Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
-                                nuevaFila("Idiomas ", Icons.language, widget.rutaProxima.idiomas.toString()),
-                                Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
-                                nuevaFila("Lugares de interés ", Icons.golf_course, widget.rutaProxima.lugaresInteres.toString()),
-                                Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
-                                nuevaFila("Duración ", Icons.timer, widget.rutaProxima.duracion.toString() + " horas"),
-                                Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
-                                nuevaFila("Vehículos ", Icons.local_airport, widget.rutaProxima.vehiculos.toString()),
-                                Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
-                                nuevaFila(
-                                    "Plazas ", Icons.format_list_numbered, widget.rutaProxima.plazas.toString() + " personas"),
+                                nuevaFila("Precio ", Icons.attach_money, widget.promocion.precio.toString() + " euros"),
                                 Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
                                 nuevaFila("Descripción ", Icons.description, ""),
                                 Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
-                                Text(widget.rutaProxima.descripcion,
-                                    textAlign: TextAlign.justify, style: TextStyle(fontSize: 16)),
+                                Text(widget.promocion.descripcion, textAlign: TextAlign.justify, style: TextStyle(fontSize: 16)),
                                 Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
                               ]))),
                     ],
                   )),
             ),
           )),
-      floatingActionButton: SpeedDial(
-        tooltip: "Ver en maps",
-        marginBottom: 50,
-        marginRight: 30,
-        backgroundColor: Colors.orange,
-        animatedIcon: AnimatedIcons.search_ellipsis,
-        //animatedIconTheme: IconThemeData(size: 22.0),
-        curve: Curves.easeInOutSine,
-        onPress: () {
-          /*  Route ruta = new MaterialPageRoute(builder: (context) => new Maps());
-          Navigator.push(context, ruta);*/
-        },
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 10, 15, 35),
+        child: FloatingActionButton(
+          tooltip: "Enviar promoción",
+          child: Icon(Icons.send),
+          backgroundColor: Colors.orange,
+          onPressed: () {
+            Route ruta = new MaterialPageRoute(builder: (context) => new EnviarPromociones());
+            Navigator.push(context, ruta);
+          },
+        ),
       ),
     );
   }

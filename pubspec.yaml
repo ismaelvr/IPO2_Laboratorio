@@ -20,10 +20,15 @@ dependencies:
   toast: ^0.1.5
   flutter:
     sdk: flutter
-  firebase_core: ^0.4.4+3  # add dependency for Firebase Core
+  firebase_core: ^0.4.4+3 
   firebase_auth: ^0.16.0
   firebase_database: ^3.1.5
   flappy_search_bar: 1.4.1
+  english_words: ^3.1.5
+  flutter_speed_dial: ^1.0.9
+  flutter_calendar_carousel: ^1.4.12
+  google_maps_flutter: ^0.5.28+1
+  #image_picker_modern: ^0.4.12+3 # por algún motivo no funciona
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -60,6 +65,17 @@ flutter:
     - villarrubia.png
     - sanjuandeavila.png
     - ismael.jpg
+    - 1puesto.png
+    - 2puesto.png
+    - 3puesto.png
+    - turistas1.jpg
+    - turistas2.jpg
+    - turistas3.jpg
+    - addImage.png
+    - prom1.jpg
+    - prom2.png
+    - prom3.png
+  
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

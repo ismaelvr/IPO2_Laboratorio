@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:pr_ipo2/objetos/grupo.dart';
+import 'package:toast/toast.dart';
+import 'package:pr_ipo2/interfaces/ModificarGrupo.dart';
 
 class DetallesGrupos extends StatefulWidget {
   final Grupo grupo;
@@ -11,10 +13,52 @@ class DetallesGrupos extends StatefulWidget {
 class _DetallesGruposState extends State<DetallesGrupos> {
   @override
   Widget build(BuildContext context) {
+    void _eliminarGrupo(BuildContext context) {
+      AlertDialog dialogo = new AlertDialog(
+        content: new Text('¿Está seguro de que desea eliminar este grupo?'),
+        actions: <Widget>[
+          new FlatButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: new Text("Cancelar")),
+          new FlatButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pop(context);
+
+                Toast.show("Grupo eliminado correctamente", context, duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+              },
+              child: new Text("Confirmar")),
+        ],
+      );
+      showDialog(context: context, child: dialogo);
+    }
+
     return new Scaffold(
         appBar: new AppBar(
+          actions: [
+            IconButton(
+              tooltip: "Modificar grupo",
+              icon: Icon(Icons.mode_edit),
+              onPressed: () {
+                //_mofidicarGrupo(context);
+                Route ruta = new MaterialPageRoute(builder: (context) => new ModificarGrupo(widget.grupo));
+
+                Navigator.push(context, ruta);
+                //ModificarGrupo(widget.grupo);
+              },
+            ),
+            IconButton(
+              tooltip: "Eliminar grupo",
+              icon: Icon(Icons.delete),
+              onPressed: () {
+                _eliminarGrupo(context);
+              },
+            )
+          ],
+          title: new Text("ID grupo: " + widget.grupo.id),
           backgroundColor: Colors.orange,
-          title: new Text(widget.grupo.id),
         ),
         body: new Container(
             padding: const EdgeInsets.only(top: 6.0),
@@ -36,49 +80,24 @@ class _DetallesGruposState extends State<DetallesGrupos> {
                         new Container(
                             child: new SingleChildScrollView(
                                 padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                child: new Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 15, 0, 8)),
-                                      nuevaFila(
-                                          "ID ",
-                                          Icons.account_box,
-                                          widget.grupo.restricciones
-                                              .toString()),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Fecha ", Icons.calendar_today,
-                                          widget.grupo.intereses.toString()),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Precio ", Icons.attach_money,
-                                          widget.grupo.tamano.toString()),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Idiomas ", Icons.language, ""),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      Text(widget.grupo.idioma,
-                                          textAlign: TextAlign.justify,
-                                          style: TextStyle(
-                                              fontStyle: FontStyle.italic,
-                                              fontWeight: FontWeight.bold)),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Lugares de interés ",
-                                          Icons.local_airport, ""),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                    ]))),
+                                child: new Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 15, 0, 8)),
+                                  nuevaFila("ID ", Icons.account_box, widget.grupo.id.toString()),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Restricciones ", Icons.calendar_today, ""),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  Text(
+                                    widget.grupo.restricciones.toString(),
+                                    style: TextStyle(fontSize: 16),
+                                  ),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Intereses ", Icons.calendar_today, widget.grupo.intereses.toString()),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Tamaño ", Icons.people, widget.grupo.tamano.toString()),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Idioma ", Icons.language, widget.grupo.idioma.toString()),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                ]))),
                       ],
                     )),
               ),
@@ -92,11 +111,7 @@ class _DetallesGruposState extends State<DetallesGrupos> {
           decoration: BoxDecoration(color: Colors.blue),
           child: Row(
             children: <Widget>[
-              Text("  " + nombre + " ",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.bold)),
+              Text("  " + nombre + " ", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
               Icon(
                 icon,
                 size: 35,
@@ -104,15 +119,14 @@ class _DetallesGruposState extends State<DetallesGrupos> {
               ),
               Text(
                 " : ",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               )
             ],
           ),
         ),
         Text(
           "  " + texto,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 16),
         ),
       ],
     );

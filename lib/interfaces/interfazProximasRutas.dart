@@ -3,6 +3,10 @@ import 'package:pr_ipo2/objetos/rutasProximas.dart';
 import "package:pr_ipo2/interfaces/ItemRutasProximas.dart";
 
 class InterfazProximasRutas extends StatefulWidget {
+  final ValueChanged<ListView> onProxRutasChanged;
+
+  const InterfazProximasRutas({Key key, this.onProxRutasChanged})
+      : super(key: key);
   @override
   _InterfazProximasRutasState createState() => _InterfazProximasRutasState();
 }
@@ -21,8 +25,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           "21/3/2020",
           10,
           3,
-          ["Español", "Inglés", "Alemán"],
-          ["Suecia", "Venecia"],
+          "Español, Inglés, Alemán",
+          "Suecia, Venecia",
           4,
           "assets/iglesiavalde.png",
           false,
@@ -34,8 +38,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           "21/3/2020",
           10,
           3,
-          ["Español", "Inglés", "Alemán"],
-          ["Suecia", "Venecia"],
+          "Español, Inglés, Alemán",
+          "Suecia, Venecia",
           4,
           "assets/villarrubia.png",
           false,
@@ -47,8 +51,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           "21/3/2020",
           10,
           3,
-          ["Español", "Inglés", "Alemán"],
-          ["Suecia", "Venecia"],
+          "Español, Inglés, Alemán",
+          "Suecia, Venecia",
           4,
           "assets/sanjuandeavila.png",
           false,
@@ -60,8 +64,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           "21/3/2020",
           10,
           3,
-          ["Español", "Inglés", "Alemán"],
-          ["Suecia", "Venecia"],
+          "Español, Inglés, Alemán",
+          "Suecia, Venecia",
           4,
           "assets/puertasantamaria.png",
           false,
@@ -73,8 +77,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           "21/3/2020",
           10,
           3,
-          ["Español", "Inglés", "Alemán"],
-          ["Suecia", "Venecia"],
+          "Español, Inglés, Alemán",
+          "Suecia, Venecia",
           4,
           "assets/iglesiavalde.png",
           false,
@@ -86,8 +90,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           "21/3/2020",
           10,
           3,
-          ["Español", "Inglés", "Alemán"],
-          ["Suecia", "Venecia"],
+          "Español, Inglés, Alemán",
+          "Suecia, Venecia",
           4,
           "assets/villarrubia.png",
           false,
@@ -99,8 +103,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           "21/3/2020",
           10,
           3,
-          ["Español", "Inglés", "Alemán"],
-          ["Suecia", "Venecia"],
+          "Español, Inglés, Alemán",
+          "Suecia, Venecia",
           4,
           "assets/sanjuandeavila.png",
           false,
@@ -112,8 +116,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           "21/3/2020",
           10,
           3,
-          ["Español", "Inglés", "Alemán"],
-          ["Suecia", "Venecia"],
+          "Español, Inglés, Alemán",
+          "Suecia, Venecia",
           4,
           "assets/puertasantamaria.png",
           false,
@@ -125,8 +129,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           "21/3/2020",
           10,
           3,
-          ["Español", "Inglés", "Alemán"],
-          ["Suecia", "Venecia"],
+          "Español, Inglés, Alemán",
+          "Suecia, Venecia",
           4,
           "assets/iglesiavalde.png",
           false,
@@ -138,8 +142,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           "21/3/2020",
           10,
           3,
-          ["Español", "Inglés", "Alemán"],
-          ["Suecia", "Venecia"],
+          "Español, Inglés, Alemán",
+          "Suecia, Venecia",
           4,
           "assets/villarrubia.png",
           false,
@@ -151,8 +155,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           "21/3/2020",
           10,
           3,
-          ["Español", "Inglés", "Alemán"],
-          ["Suecia", "Venecia"],
+          "Español, Inglés, Alemán",
+          "Suecia, Venecia",
           4,
           "assets/sanjuandeavila.png",
           false,
@@ -164,8 +168,8 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
           "21/3/2020",
           10,
           3,
-          ["Español", "Inglés", "Alemán"],
-          ["Suecia", "Venecia"],
+          "Español, Inglés, Alemán",
+          "Suecia, Venecia",
           4,
           "assets/puertasantamaria.png",
           false,
@@ -178,5 +182,9 @@ class _InterfazProximasRutasState extends State<InterfazProximasRutas> {
     return new ListView.builder(
         itemCount: rutas.length,
         itemBuilder: (context, int item) => new ItemRutasProximas(rutas[item]));
+  }
+
+  List<RutaProxima> getLista() {
+    return rutas;
   }
 }

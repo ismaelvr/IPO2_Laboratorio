@@ -40,7 +40,7 @@ class ItemGrupos extends StatelessWidget {
         subtitle: new Container(
           child: new Text(
             //_grupo.restricciones.toString(),
-            listaBien(_grupo.restricciones),
+            _grupo.restricciones,
             style: new TextStyle(
               fontSize: 15.0,
               color: Colors.grey,
@@ -62,14 +62,14 @@ class ItemGrupos extends StatelessWidget {
     ]);
   }
 
-  String listaBien(List<String> lista) {
+  /* String listaBien(List<String> lista) {
     String listaFormateada = "";
     for (int i = 0; i < lista.length; i++) {
-      listaFormateada = "$listaFormateada${lista[i]} ";
-      if (i == lista.length) {
-        listaFormateada = "$listaFormateada,";
-      }
+      if (i == lista.length - 1) {
+        listaFormateada = "$listaFormateada${lista[i]} ";
+      } else
+        listaFormateada = "$listaFormateada${lista[i]}, ";
     }
     return listaFormateada;
-  }
+  }*/
 }

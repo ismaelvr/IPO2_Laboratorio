@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:pr_ipo2/objetos/drawer.dart';
 import 'package:pr_ipo2/interfaces/interfazRutasRealizadas.dart';
 
@@ -60,8 +61,23 @@ class _RutasRealizadasState extends State<RutasRealizadas> {
             title: new Text("Rutas Realizadas"),
             backgroundColor: Colors.orange,
           ),
-          drawer: new Drawer(child: DrawerVista()),
+          drawer: new Drawer(child: DrawerVista(1)),
           body: new InterfazRutasRealizadas(),
+          /*floatingActionButton: SpeedDial(
+            tooltip: "Añadir grupo",
+            marginBottom: 50,
+            marginRight: 30,
+            backgroundColor: Colors.orange,
+            animatedIcon: AnimatedIcons.add_event,
+            //animatedIconTheme: IconThemeData(size: 22.0),
+            curve: Curves.easeInOutSine,
+            onPress: () {
+              /*Route ruta = new MaterialPageRoute(
+                  builder: (context) => new AniadirRutaRealizadas());
+              Navigator.push(context, ruta);*/
+              //no hay que añadir rutas REALIZADAS no?
+            },
+          ),*/
         ));
   }
 }

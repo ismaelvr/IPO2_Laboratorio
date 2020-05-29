@@ -37,96 +37,33 @@ class _DetallesRutaRealizadaState extends State<DetallesRutaRealizada> {
                         new Container(
                             child: new SingleChildScrollView(
                                 padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                child: new Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 15, 0, 8)),
-                                      nuevaFila("ID ", Icons.account_box,
-                                          widget.ruta.id),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Fecha ", Icons.calendar_today,
-                                          widget.ruta.fecha),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila(
-                                          "Precio ",
-                                          Icons.attach_money,
-                                          widget.ruta.precio.toString() +
-                                              " euros"),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Idiomas ", Icons.language, ""),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      Text(widget.ruta.idiomas.toString(),
-                                          textAlign: TextAlign.justify,
-                                          style: TextStyle(
-                                              fontStyle: FontStyle.italic,
-                                              fontWeight: FontWeight.bold)),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila(
-                                          "Lugares de interés ",
-                                          Icons.local_airport,
-                                         ""),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      Text(widget.ruta.lugaresInteres.toString(),
-                                          textAlign: TextAlign.justify,
-                                          style: TextStyle(
-                                              fontStyle: FontStyle.italic,
-                                              fontWeight: FontWeight.bold)),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila(
-                                          "Duración ",
-                                          Icons.timer,
-                                          widget.ruta.duracion.toString() +
-                                              " horas"),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila(
-                                          "Puntuación ",
-                                          Icons.grade,
-                                          widget.ruta.puntuacion.toString() +
-                                              "/5"),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila(
-                                          "Plazas ",
-                                          Icons.format_list_numbered,
-                                          widget.ruta.plazas.toString() +
-                                              " personas"),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Descripción ",
-                                          Icons.description, ""),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      Text(widget.ruta.descripcion,
-                                          textAlign: TextAlign.justify,
-                                          style: TextStyle(
-                                              fontStyle: FontStyle.italic,
-                                              fontWeight: FontWeight.bold)),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                    ]))),
+                                child: new Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 15, 0, 8)),
+                                  nuevaFila("ID ", Icons.account_box, widget.ruta.id),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Fecha ", Icons.calendar_today, widget.ruta.fecha),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Precio ", Icons.attach_money, widget.ruta.precio.toString() + " euros"),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Idiomas ", Icons.language, widget.ruta.idiomas.toString()),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Lugares de interés ", Icons.local_airport, ""),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  Text(widget.ruta.lugaresInteres.toString(),
+                                      textAlign: TextAlign.justify, style: TextStyle(fontSize: 16)),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Duración ", Icons.timer, widget.ruta.duracion.toString() + " horas"),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Puntuación ", Icons.grade, widget.ruta.puntuacion.toString() + "/5"),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Plazas ", Icons.format_list_numbered, widget.ruta.plazas.toString() + " personas"),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Descripción ", Icons.description, ""),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  Text(widget.ruta.descripcion,
+                                      textAlign: TextAlign.justify, style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic)),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                ]))),
                       ],
                     )),
               ),
@@ -137,15 +74,10 @@ class _DetallesRutaRealizadaState extends State<DetallesRutaRealizada> {
     return Row(
       children: <Widget>[
         new Container(
-          
           decoration: BoxDecoration(color: Colors.blue),
           child: Row(
             children: <Widget>[
-              Text("  " + nombre + " ",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.bold)),
+              Text("  " + nombre + " ", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)),
               Icon(
                 icon,
                 size: 35,
@@ -153,15 +85,14 @@ class _DetallesRutaRealizadaState extends State<DetallesRutaRealizada> {
               ),
               Text(
                 " : ",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               )
             ],
           ),
         ),
         Text(
           "  " + texto,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 16),
         ),
       ],
     );

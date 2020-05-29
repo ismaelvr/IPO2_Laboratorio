@@ -19,13 +19,13 @@ class _RegisterState extends State<Register> {
   String _usuario = "";
   String _contrasena = "";
 
-  void _irRutaRegister(BuildContext context) {
+  /* void _irRutaRegister(BuildContext context) {
     Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => Register(),
         ));
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class _RegisterState extends State<Register> {
       },
     );
 
-    final loginButon = Material(
+    final registerButon = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(30.0),
       color: Color(0xff01A0C7),
@@ -85,6 +85,7 @@ class _RegisterState extends State<Register> {
 
             showDialog(context: context, child: dialogo);
             dynamic result = await _auth.signUp(_usuario, _contrasena);
+
             if (result == null) {
               setState(() {
                 AlertDialog dialogo = new AlertDialog(
@@ -105,7 +106,7 @@ class _RegisterState extends State<Register> {
             }
           }
         },
-        child: Text("Login",
+        child: Text("Crear cuenta",
             textAlign: TextAlign.center,
             style: style.copyWith(
                 color: Colors.white, fontWeight: FontWeight.bold)),
@@ -161,7 +162,7 @@ class _RegisterState extends State<Register> {
                     ],
                   ),
                 ),
-                loginButon,
+                registerButon,
                 Padding(padding: const EdgeInsets.only(bottom: 15)),
                 cancelButon,
                 SizedBox(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pr_ipo2/BaseAuth.dart';
+import 'package:pr_ipo2/pestanas/promociones.dart';
 import 'package:pr_ipo2/pestanas/guias.dart';
 import 'package:pr_ipo2/pestanas/grupos.dart';
 import 'package:pr_ipo2/pestanas/principal.dart';
@@ -29,13 +30,12 @@ class MyApp extends StatelessWidget {
         ),*/
         home: MyHomePage(title: 'Login'),
         routes: <String, WidgetBuilder>{
-          RutasRealizadas.nombreRuta: (BuildContext context) =>
-              new RutasRealizadas(),
+          RutasRealizadas.nombreRuta: (BuildContext context) => new RutasRealizadas(),
           Principal.nombreRuta: (BuildContext context) => new Principal(),
-          ProximasRutas.nombreRuta: (BuildContext context) =>
-              new ProximasRutas(),
+          ProximasRutas.nombreRuta: (BuildContext context) => new ProximasRutas(),
           Guias.nombreRuta: (BuildContext context) => new Guias(),
           Grupos.nombreRuta: (BuildContext context) => new Grupos(),
+          Promociones.nombreRuta: (BuildContext context) => new Promociones(),
         });
   }
 }
@@ -76,8 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Usuario",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       validator: (val) => val.isEmpty ? 'Debes introducir un email' : null,
       onChanged: (val) {
         setState(() => _usuario = val);
@@ -86,17 +85,14 @@ class _MyHomePageState extends State<MyHomePage> {
     final contrasenaField = TextFormField(
       controller: contrasenaController,
       obscureText: true,
-      validator: (val) => val.length < 6
-          ? 'La contraseña debe tener más de 6 caracteres'
-          : null,
+      validator: (val) => val.length < 6 ? 'La contraseña debe tener más de 6 caracteres' : null,
       style: style,
       decoration: InputDecoration(
           fillColor: Colors.white,
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Contraseña",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       onChanged: (val) {
         setState(() => _contrasena = val);
       },
@@ -111,14 +107,12 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () async {
           if (_formKey.currentState.validate()) {
-            dynamic result =
-                await _auth.signInWithEmailAndPassword(_usuario, _contrasena);
-            usuarioController.clear();
-            contrasenaController.clear();
+            dynamic result = await _auth.signInWithEmailAndPassword(_usuario, _contrasena);
+
             if (result == null) {
               setState(() {
                 AlertDialog dialogo = new AlertDialog(
-                  content: new Text('Login incorrecto, subnormal'),
+                  content: new Text('Login incorrecto'),
                   actions: <Widget>[
                     new FlatButton(
                         onPressed: () async {
@@ -131,14 +125,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 showDialog(context: context, child: dialogo);
               });
             } else {
+              usuarioController.clear();
+              contrasenaController.clear();
               _irRutaHome(context);
             }
           }
         },
-        child: Text("Login",
-            textAlign: TextAlign.center,
-            style: style.copyWith(
-                color: Colors.white, fontWeight: FontWeight.bold)),
+        child:
+            Text("Login", textAlign: TextAlign.center, style: style.copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
       ),
     );
     final registerButon = Material(
@@ -152,9 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
           _irRutaRegister(context);
         },
         child: Text("Register",
-            textAlign: TextAlign.center,
-            style: style.copyWith(
-                color: Colors.white, fontWeight: FontWeight.bold)),
+            textAlign: TextAlign.center, style: style.copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
       ),
     );
 

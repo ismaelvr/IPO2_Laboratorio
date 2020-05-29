@@ -40,7 +40,7 @@ class _PrincipalState extends State<Principal> {
             title: new Text("Gestor de rutas: TU-RURAL"),
             backgroundColor: Colors.orange,
           ),
-          drawer: new Drawer(child: DrawerVista()),
+          drawer: new Drawer(child: DrawerVista(0)),
           body: new InterfazPrincipal(),
         ));
   }

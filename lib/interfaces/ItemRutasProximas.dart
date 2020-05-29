@@ -3,7 +3,6 @@ import "package:pr_ipo2/objetos/rutasProximas.dart";
 import 'package:pr_ipo2/interfaces/DetallesRutaProxima.dart';
 
 class ItemRutasProximas extends StatefulWidget {
-  // final Ruta _ruta;
   final RutaProxima _ruta;
   ItemRutasProximas(this._ruta);
 
@@ -54,22 +53,18 @@ class _ItemRutasProximasState extends State<ItemRutasProximas> {
           padding: const EdgeInsets.only(top: 5.0),
         ),
         onTap: () {
-          //_ruta.removeWhere((item) => item.id == '001');
-          if (widget._ruta.isSelected) {
-            widget._ruta.isSelected = false;
-          } else {
-            Route ruta = new MaterialPageRoute(
-                builder: (context) =>
-                    new DetallesRutaProxima(ruta: widget._ruta));
-            Navigator.push(context, ruta);
-          }
+          Route route = new MaterialPageRoute(
+              builder: (context) =>
+                  new DetallesRutaProxima(rutaProxima: widget._ruta));
+          Navigator.push(context, route);
         },
         onLongPress: () {
           /*setState(() {
             widget._ruta.isSelected = true;
-            print(widget._ruta.isSelected);
           });*/
-          Container(
+
+          /*Como hacer el menú contextual????*/
+          /*Container(
             margin: EdgeInsets.symmetric(vertical: 10),
             height: 100,
             width: 100,
@@ -77,11 +72,12 @@ class _ItemRutasProximasState extends State<ItemRutasProximas> {
               child: FlutterLogo(),
               itemBuilder: (context) {
                 return <PopupMenuItem>[
-                  new PopupMenuItem(child: Text('Delete'))
+                  new PopupMenuItem(child: Text('Modificar')),
+                  new PopupMenuItem(child: Text('Borrar')),
                 ];
               },
             ),
-          );
+          );*/
         },
       )
     ]);

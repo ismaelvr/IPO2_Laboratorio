@@ -5,8 +5,8 @@ class Ruta {
   String _fecha;
   int _precio;
   double _duracion;
-  List<String> _idiomas;
-  List<String> _lugaresInteres;
+  String _idiomas;
+  String _lugaresInteres;
   int _plazas;
   String _foto;
   bool _isSelected;
@@ -18,8 +18,8 @@ class Ruta {
       String fecha,
       int precio,
       double duracion,
-      List<String> idiomas,
-      List<String> lugaresInteres,
+      String idiomas,
+      String lugaresInteres,
       int plazas,
       String foto,
       bool isSelected) {
@@ -43,8 +43,8 @@ class Ruta {
   String get fecha => _fecha;
   int get precio => _precio;
   double get duracion => _duracion;
-  List<String> get idiomas => _idiomas;
-  List<String> get lugaresInteres => _lugaresInteres;
+  String get idiomas => _idiomas;
+  String get lugaresInteres => _lugaresInteres;
   int get plazas => _plazas;
   String get foto => _foto;
   bool get isSelected => _isSelected;

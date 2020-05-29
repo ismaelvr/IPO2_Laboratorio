@@ -2,22 +2,14 @@ import "package:flutter/material.dart";
 import "package:pr_ipo2/objetos/rutasRealizadas.dart";
 import 'package:pr_ipo2/interfaces/DetallesRutaRealizada.dart';
 
-
 class ItemRutasRealizadas extends StatelessWidget {
-
-  // final Ruta _ruta;
   final RutaRealizada _ruta;
-
   ItemRutasRealizadas(this._ruta);
 
   @override
   Widget build(BuildContext context) {
     return new Column(children: <Widget>[
-      new Divider(
-        height: 8.0,
-        thickness: 1.0,
-        color: Colors.black
-      ),
+      new Divider(height: 8.0, thickness: 1.0, color: Colors.black),
       new ListTile(
         leading: Container(
             width: 60.0,
@@ -26,8 +18,7 @@ class ItemRutasRealizadas extends StatelessWidget {
                 borderRadius: BorderRadius.all(const Radius.circular(60.0)),
                 color: Colors.transparent,
                 image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(_ruta.foto)))),
+                    fit: BoxFit.cover, image: AssetImage(_ruta.foto)))),
         title: new Row(
           children: <Widget>[
             new Text(
@@ -55,12 +46,9 @@ class ItemRutasRealizadas extends StatelessWidget {
           padding: const EdgeInsets.only(top: 5.0),
         ),
         onTap: () {
-          
-          //_ruta.removeWhere((item) => item.id == '001');
-
-          Route ruta = new MaterialPageRoute(
+          Route route = new MaterialPageRoute(
               builder: (context) => new DetallesRutaRealizada(ruta: _ruta));
-          Navigator.push(context, ruta);
+          Navigator.push(context, route);
         },
         /*onLongPress: (){
           
@@ -68,6 +56,4 @@ class ItemRutasRealizadas extends StatelessWidget {
       )
     ]);
   }
-
-  
 }

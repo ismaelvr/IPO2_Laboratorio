@@ -21,7 +21,7 @@ class _InterfazGuiasState extends State<InterfazGuias> {
         10,
         4,
         "Es un señor muy majo",
-        ["Español", "Inglés", "Esperanto"],
+        "Español, Inglés, Esperanto",
         "assets/ismael.jpg",
       ),
       Guia(
@@ -31,7 +31,7 @@ class _InterfazGuiasState extends State<InterfazGuias> {
         10,
         4,
         "Es un señor muy majo",
-        ["Español", "Inglés", "Esperanto"],
+        "Español, Inglés, Esperanto",
         "assets/ismael.jpg",
       ),
       Guia(
@@ -41,7 +41,7 @@ class _InterfazGuiasState extends State<InterfazGuias> {
         10,
         4,
         "Es un señor muy majo",
-        ["Español", "Inglés", "Esperanto"],
+        "Español, Inglés, Esperanto",
         "assets/ismael.jpg",
       ),
       Guia(
@@ -51,7 +51,7 @@ class _InterfazGuiasState extends State<InterfazGuias> {
         10,
         4,
         "Es un señor muy majo",
-        ["Español", "Inglés", "Esperanto"],
+        "Español, Inglés, Esperanto",
         "assets/ismael.jpg",
       ),
       Guia(
@@ -61,7 +61,7 @@ class _InterfazGuiasState extends State<InterfazGuias> {
         10,
         4,
         "Es un señor muy majo",
-        ["Español", "Inglés", "Esperanto"],
+        "Español, Inglés, Esperanto",
         "assets/ismael.jpg",
       ),
       Guia(
@@ -71,7 +71,7 @@ class _InterfazGuiasState extends State<InterfazGuias> {
         10,
         4,
         "Es un señor muy majo",
-        ["Español", "Inglés", "Esperanto"],
+        "Español, Inglés, Esperanto",
         "assets/ismael.jpg",
       ),
       Guia(
@@ -81,7 +81,7 @@ class _InterfazGuiasState extends State<InterfazGuias> {
         10,
         4,
         "Es un señor muy majo",
-        ["Español", "Inglés", "Esperanto"],
+        "Español, Inglés, Esperanto",
         "assets/ismael.jpg",
       ),
       Guia(
@@ -91,7 +91,7 @@ class _InterfazGuiasState extends State<InterfazGuias> {
         10,
         4,
         "Es un señor muy majo",
-        ["Español", "Inglés", "Esperanto"],
+        "Español, Inglés, Esperanto",
         "assets/ismael.jpg",
       ),
       Guia(
@@ -101,7 +101,7 @@ class _InterfazGuiasState extends State<InterfazGuias> {
         10,
         4,
         "Es un señor muy majo",
-        ["Español", "Inglés", "Esperanto"],
+        "Español, Inglés, Esperanto",
         "assets/ismael.jpg",
       ),
     ];

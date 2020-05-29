@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import "package:pr_ipo2/interfaces/ItemGrupos.dart";
+import 'package:pr_ipo2/interfaces/ItemSeleccionGrupos.dart';
 import 'package:pr_ipo2/objetos/grupo.dart';
 
-class InterfazGrupos extends StatefulWidget {
+class InterfazEnviarPromociones extends StatefulWidget {
   @override
-  _InterfazGruposState createState() => _InterfazGruposState();
+  _InterfazEnviarPromocionesState createState() => _InterfazEnviarPromocionesState();
 }
 
-class _InterfazGruposState extends State<InterfazGrupos> {
+class _InterfazEnviarPromocionesState extends State<InterfazEnviarPromociones> {
   List<Grupo> grupos;
 
   @override
@@ -92,7 +92,6 @@ class _InterfazGruposState extends State<InterfazGrupos> {
   @override
   Widget build(BuildContext context) {
     return new ListView.builder(
-        itemCount: grupos.length,
-        itemBuilder: (context, int item) => new ItemGrupos(grupos[item]));
+        itemCount: grupos.length, itemBuilder: (context, int item) => new ItemSeleccionGrupos(grupos[item]));
   }
 }

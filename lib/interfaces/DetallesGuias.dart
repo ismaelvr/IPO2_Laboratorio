@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:pr_ipo2/objetos/guia.dart';
+import 'package:pr_ipo2/interfaces/ModificarGuia.dart';
+import 'package:toast/toast.dart';
 
 class DetallesGuias extends StatefulWidget {
   final Guia guia;
@@ -11,10 +13,52 @@ class DetallesGuias extends StatefulWidget {
 class _DetallesGuiasState extends State<DetallesGuias> {
   @override
   Widget build(BuildContext context) {
+    void _eliminarGuia(BuildContext context) {
+      AlertDialog dialogo = new AlertDialog(
+        content: new Text('¿Está seguro de que desea eliminar este guía?'),
+        actions: <Widget>[
+          new FlatButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: new Text("Cancelar")),
+          new FlatButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pop(context);
+
+                Toast.show("Guía eliminado correctamente", context, duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+              },
+              child: new Text("Confirmar")),
+        ],
+      );
+      showDialog(context: context, child: dialogo);
+    }
+
     return new Scaffold(
         appBar: new AppBar(
-          backgroundColor: Colors.orange,
+          actions: [
+            IconButton(
+              tooltip: "Modificar guía",
+              icon: Icon(Icons.mode_edit),
+              onPressed: () {
+                //_mofidicarGrupo(context);
+                Route ruta = new MaterialPageRoute(builder: (context) => new ModificarGuia(widget.guia));
+
+                Navigator.push(context, ruta);
+                //ModificarGrupo(widget.grupo);
+              },
+            ),
+            IconButton(
+              tooltip: "Eliminar guía",
+              icon: Icon(Icons.delete),
+              onPressed: () {
+                _eliminarGuia(context);
+              },
+            )
+          ],
           title: new Text(widget.guia.nombre),
+          backgroundColor: Colors.orange,
         ),
         body: new Container(
             padding: const EdgeInsets.only(top: 6.0),
@@ -36,70 +80,27 @@ class _DetallesGuiasState extends State<DetallesGuias> {
                         new Container(
                             child: new SingleChildScrollView(
                                 padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                child: new Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 15, 0, 8)),
-                                      nuevaFila("ID ", Icons.account_box,
-                                          widget.guia.id),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Fecha ", Icons.calendar_today,
-                                          widget.guia.correo),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila(
-                                          "Precio ",
-                                          Icons.attach_money,
-                                          widget.guia.sueldo.toString() +
-                                              " euros"),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Idiomas ", Icons.language, ""),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      Text(widget.guia.idiomas.toString(),
-                                          textAlign: TextAlign.justify,
-                                          style: TextStyle(
-                                              fontStyle: FontStyle.italic,
-                                              fontWeight: FontWeight.bold)),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Lugares de interés ",
-                                          Icons.local_airport, ""),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila(
-                                          "Duración ",
-                                          Icons.timer,
-                                          widget.guia.valoracion.toString() +
-                                              " horas"),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      nuevaFila("Descripción ",
-                                          Icons.description, ""),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                      Text(widget.guia.descripcion,
-                                          textAlign: TextAlign.justify,
-                                          style: TextStyle(
-                                              fontStyle: FontStyle.italic,
-                                              fontWeight: FontWeight.bold)),
-                                      Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 8, 0, 8)),
-                                    ]))),
+                                child: new Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 15, 0, 8)),
+                                  nuevaFila("ID ", Icons.account_box, widget.guia.id),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Correo ", Icons.mail, widget.guia.correo),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Salario ", Icons.attach_money, widget.guia.sueldo.toString() + " euros"),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Idiomas ", Icons.language, ""),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  Text(widget.guia.idiomas.toString(),
+                                      textAlign: TextAlign.justify, style: TextStyle(fontSize: 16)),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Valoración ", Icons.rate_review, widget.guia.valoracion.toString() + "/5.0"),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  nuevaFila("Descripción ", Icons.description, ""),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                  Text(widget.guia.descripcion,
+                                      textAlign: TextAlign.justify, style: TextStyle(fontStyle: FontStyle.italic, fontSize: 16)),
+                                  Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
+                                ]))),
                       ],
                     )),
               ),
@@ -113,11 +114,7 @@ class _DetallesGuiasState extends State<DetallesGuias> {
           decoration: BoxDecoration(color: Colors.blue),
           child: Row(
             children: <Widget>[
-              Text("  " + nombre + " ",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.bold)),
+              Text("  " + nombre + " ", style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)),
               Icon(
                 icon,
                 size: 35,
@@ -125,15 +122,14 @@ class _DetallesGuiasState extends State<DetallesGuias> {
               ),
               Text(
                 " : ",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               )
             ],
           ),
         ),
         Text(
           "  " + texto,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 16),
         ),
       ],
     );

@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import "package:pr_ipo2/objetos/grupo.dart";
-import 'package:pr_ipo2/interfaces/DetallesGrupos.dart';
 
 class ItemSeleccionGrupos extends StatefulWidget {
   final Grupo _grupo;

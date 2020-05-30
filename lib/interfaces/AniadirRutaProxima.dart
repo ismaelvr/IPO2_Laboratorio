@@ -1,6 +1,4 @@
 import "package:flutter/material.dart";
-import 'package:pr_ipo2/objetos/rutasProximas.dart';
-import 'package:pr_ipo2/pestanas/proximasrutas.dart';
 import 'package:toast/toast.dart';
 //import 'package:image_picker_modern/image_picker_modern.dart';
 
@@ -61,8 +59,7 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Nombre de la ruta",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       onChanged: (val) {
         setState(() => _id = val);
       },
@@ -77,8 +74,7 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "ID",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       onChanged: (val) {
         setState(() => _id = val);
       },
@@ -87,15 +83,13 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
       controller: descripcionController,
       obscureText: false,
       style: style,
-      validator: (val) =>
-          val.isEmpty ? 'Debes introducir una descripción' : null,
+      validator: (val) => val.isEmpty ? 'Debes introducir una descripción' : null,
       decoration: InputDecoration(
           fillColor: Colors.white,
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Descripción",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       onChanged: (val) {
         setState(() => _id = val);
       },
@@ -110,8 +104,7 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Fecha",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       onChanged: (val) {
         setState(() => _id = val);
       },
@@ -126,8 +119,7 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Precio",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       onChanged: (val) {
         setState(() => _id = val);
       },
@@ -141,8 +133,7 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Duración",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       onChanged: (val) {
         setState(() => _duracion = val as double);
       },
@@ -157,8 +148,7 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Idiomas",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       onChanged: (val) {
         setState(() => _idiomas = val);
       },
@@ -172,8 +162,7 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Número de plazas",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       validator: (val) => val.isEmpty ? 'Debes introducir un valor' : null,
       onChanged: (val) {
         setState(() => _plazas = val as int);
@@ -183,15 +172,13 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
       controller: lugintController,
       obscureText: false,
       style: style,
-      validator: (val) =>
-          val.isEmpty ? 'Debes introducir lugares de interes' : null,
+      validator: (val) => val.isEmpty ? 'Debes introducir lugares de interes' : null,
       decoration: InputDecoration(
           fillColor: Colors.white,
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Lugares de interes",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       onChanged: (val) {
         setState(() => _lugaresinteres = val);
       },
@@ -212,9 +199,7 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
           }
         },
         child: Text("Crear ruta",
-            textAlign: TextAlign.center,
-            style: style.copyWith(
-                color: Colors.white, fontWeight: FontWeight.bold)),
+            textAlign: TextAlign.center, style: style.copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
       ),
     );
     final cancelButon = Material(
@@ -228,9 +213,7 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
           Navigator.pop(context);
         },
         child: Text("Cancelar",
-            textAlign: TextAlign.center,
-            style: style.copyWith(
-                color: Colors.white, fontWeight: FontWeight.bold)),
+            textAlign: TextAlign.center, style: style.copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
       ),
     );
 
@@ -251,25 +234,18 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
                         // FOTO
                         new Container(
                             margin: const EdgeInsets.fromLTRB(70, 0, 70, 0),
-                            //padding: const EdgeInsets.all(10.0),
                             decoration: const BoxDecoration(
                               border: Border(
                                 top: BorderSide(width: 2.0, color: Colors.grey),
-                                left:
-                                    BorderSide(width: 2.0, color: Colors.grey),
-                                right:
-                                    BorderSide(width: 2.0, color: Colors.grey),
-                                bottom:
-                                    BorderSide(width: 2.0, color: Colors.grey),
+                                left: BorderSide(width: 2.0, color: Colors.grey),
+                                right: BorderSide(width: 2.0, color: Colors.grey),
+                                bottom: BorderSide(width: 2.0, color: Colors.grey),
                               ),
                             ),
                             child: GestureDetector(
                               onTap: () {
-                                Toast.show(
-                                    "Seleccion de imagen en implementación",
-                                    context,
-                                    duration: Toast.LENGTH_LONG,
-                                    gravity: Toast.BOTTOM);
+                                Toast.show("Seleccion de imagen en implementación", context,
+                                    duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                               },
                               child: Image(
                                 image: AssetImage("assets/addImage.png"),
@@ -281,40 +257,37 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
                         new Container(
                             child: new SingleChildScrollView(
                                 padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                child: new Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Form(
-                                        key: _formKey,
-                                        child: Column(
-                                          children: <Widget>[
-                                            SizedBox(height: 15.0),
-                                            nombreField,
-                                            SizedBox(height: 15.0),
-                                            idField,
-                                            SizedBox(height: 15.0),
-                                            descripcionField,
-                                            SizedBox(height: 15.0),
-                                            fechaField,
-                                            SizedBox(height: 15.0),
-                                            precioField,
-                                            SizedBox(height: 15.0),
-                                            duracionField,
-                                            SizedBox(height: 15.0),
-                                            idiomasField,
-                                            SizedBox(height: 15.0),
-                                            lugintField,
-                                            SizedBox(height: 15.0),
-                                            plazasField,
-                                            SizedBox(height: 15.0),
-                                            crearButon,
-                                            SizedBox(height: 15.0),
-                                            cancelButon
-                                          ],
-                                        ),
-                                      ),
-                                    ]))),
+                                child: new Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                                  Form(
+                                    key: _formKey,
+                                    child: Column(
+                                      children: <Widget>[
+                                        SizedBox(height: 15.0),
+                                        nombreField,
+                                        SizedBox(height: 15.0),
+                                        idField,
+                                        SizedBox(height: 15.0),
+                                        descripcionField,
+                                        SizedBox(height: 15.0),
+                                        fechaField,
+                                        SizedBox(height: 15.0),
+                                        precioField,
+                                        SizedBox(height: 15.0),
+                                        duracionField,
+                                        SizedBox(height: 15.0),
+                                        idiomasField,
+                                        SizedBox(height: 15.0),
+                                        lugintField,
+                                        SizedBox(height: 15.0),
+                                        plazasField,
+                                        SizedBox(height: 15.0),
+                                        crearButon,
+                                        SizedBox(height: 15.0),
+                                        cancelButon
+                                      ],
+                                    ),
+                                  ),
+                                ]))),
                       ],
                     )),
               ),
@@ -329,10 +302,7 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
           child: Row(
             children: <Widget>[
               Text("  " + nombre + " ",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.bold)),
+                  style: TextStyle(color: Colors.white, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold)),
               Icon(
                 icon,
                 size: 35,
@@ -340,8 +310,7 @@ class _AniadirRutaProximaState extends State<AniadirRutaProxima> {
               ),
               Text(
                 " : ",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               )
             ],
           ),

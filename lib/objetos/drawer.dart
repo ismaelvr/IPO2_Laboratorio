@@ -26,6 +26,19 @@ class _DrawerVistaState extends State<DrawerVista> {
         });
   }
 
+  ListTile _construirAjustes(BuildContext context, IconData iconData, String texto, String ruta, DrawerSelection draweSel) {
+    DrawerSelection elect = eleccion(widget.i);
+    return new ListTile(
+        selected: elect == draweSel,
+        leading: new Icon(iconData),
+        title: new Text(texto),
+        onTap: () {
+          setState(() {
+            Navigator.pushNamed(context, ruta);
+          });
+        });
+  }
+
   ListTile _logoutDrawer(BuildContext context, IconData iconData, String texto) {
     return new ListTile(
       leading: new Icon(iconData),
@@ -96,7 +109,7 @@ class _DrawerVistaState extends State<DrawerVista> {
       _construirItem(context, Icons.people, "Grupos", "/grupos", DrawerSelection.grupos),
       _construirItem(context, Icons.monetization_on, "Promociones", "/promociones", DrawerSelection.promociones),
       new Divider(height: 0.0, color: Colors.black),
-      _construirItem(context, Icons.build, "Ajustes", "/ajustes", DrawerSelection.ajustes),
+      _construirAjustes(context, Icons.build, "Ajustes", "/ajustes", DrawerSelection.ajustes),
       new AboutListTile(
         child: new Text("Acerca de..."),
         applicationIcon: new Icon(Icons.info),
@@ -138,6 +151,9 @@ class _DrawerVistaState extends State<DrawerVista> {
         break;
       case 5:
         return DrawerSelection.promociones;
+        break;
+      case 6:
+        return DrawerSelection.ajustes;
         break;
 
       default:

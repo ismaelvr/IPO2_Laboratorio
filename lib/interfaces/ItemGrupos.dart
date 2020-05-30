@@ -19,8 +19,7 @@ class ItemGrupos extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(const Radius.circular(60.0)),
                 color: Colors.transparent,
-                image: DecorationImage(
-                    fit: BoxFit.cover, image: AssetImage(_grupo.foto)))),
+                image: DecorationImage(fit: BoxFit.cover, image: AssetImage(_grupo.foto)))),
         title: new Row(
           children: <Widget>[
             new Text(
@@ -28,7 +27,7 @@ class ItemGrupos extends StatelessWidget {
               style: new TextStyle(fontWeight: FontWeight.bold),
             ),
             new Text(
-              _grupo.idioma,
+              _grupo.tamano.toString() + " personas",
               style: new TextStyle(
                 fontSize: 13.5,
                 color: Colors.grey,
@@ -39,8 +38,7 @@ class ItemGrupos extends StatelessWidget {
         ),
         subtitle: new Container(
           child: new Text(
-            //_grupo.restricciones.toString(),
-            _grupo.restricciones,
+            _grupo.idioma,
             style: new TextStyle(
               fontSize: 15.0,
               color: Colors.grey,
@@ -49,10 +47,7 @@ class ItemGrupos extends StatelessWidget {
           padding: const EdgeInsets.only(top: 5.0),
         ),
         onTap: () {
-          //_ruta.removeWhere((item) => item.id == '001');
-
-          Route ruta = new MaterialPageRoute(
-              builder: (context) => new DetallesGrupos(grupo: _grupo));
+          Route ruta = new MaterialPageRoute(builder: (context) => new DetallesGrupos(grupo: _grupo));
           Navigator.push(context, ruta);
         },
         /*onLongPress: (){
@@ -61,15 +56,4 @@ class ItemGrupos extends StatelessWidget {
       )
     ]);
   }
-
-  /* String listaBien(List<String> lista) {
-    String listaFormateada = "";
-    for (int i = 0; i < lista.length; i++) {
-      if (i == lista.length - 1) {
-        listaFormateada = "$listaFormateada${lista[i]} ";
-      } else
-        listaFormateada = "$listaFormateada${lista[i]}, ";
-    }
-    return listaFormateada;
-  }*/
 }

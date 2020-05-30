@@ -42,11 +42,8 @@ class _DetallesGruposState extends State<DetallesGrupos> {
               tooltip: "Modificar grupo",
               icon: Icon(Icons.mode_edit),
               onPressed: () {
-                //_mofidicarGrupo(context);
                 Route ruta = new MaterialPageRoute(builder: (context) => new ModificarGrupo(widget.grupo));
-
                 Navigator.push(context, ruta);
-                //ModificarGrupo(widget.grupo);
               },
             ),
             IconButton(
@@ -81,17 +78,15 @@ class _DetallesGruposState extends State<DetallesGrupos> {
                             child: new SingleChildScrollView(
                                 padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 child: new Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-                                  Padding(padding: const EdgeInsets.fromLTRB(0, 15, 0, 8)),
-                                  nuevaFila("ID ", Icons.account_box, widget.grupo.id.toString()),
                                   Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
-                                  nuevaFila("Restricciones ", Icons.calendar_today, ""),
+                                  nuevaFila("Restricciones ", Icons.block, ""),
                                   Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
                                   Text(
                                     widget.grupo.restricciones.toString(),
                                     style: TextStyle(fontSize: 16),
                                   ),
                                   Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
-                                  nuevaFila("Intereses ", Icons.calendar_today, widget.grupo.intereses.toString()),
+                                  nuevaFila("Intereses ", Icons.bookmark, widget.grupo.intereses.toString()),
                                   Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),
                                   nuevaFila("Tamaño ", Icons.people, widget.grupo.tamano.toString()),
                                   Padding(padding: const EdgeInsets.fromLTRB(0, 8, 0, 8)),

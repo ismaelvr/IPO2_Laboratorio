@@ -7,6 +7,8 @@ import 'package:pr_ipo2/pestanas/principal.dart';
 import 'package:pr_ipo2/pestanas/proximasrutas.dart';
 import 'package:pr_ipo2/pestanas/rutasrealizadas.dart';
 import 'package:pr_ipo2/pestanas/register.dart';
+import 'package:pr_ipo2/pestanas/ajustes.dart';
+
 import 'package:flutter/services.dart';
 
 void main() {
@@ -36,6 +38,7 @@ class MyApp extends StatelessWidget {
           Guias.nombreRuta: (BuildContext context) => new Guias(),
           Grupos.nombreRuta: (BuildContext context) => new Grupos(),
           Promociones.nombreRuta: (BuildContext context) => new Promociones(),
+          Ajustes.nombreRuta: (BuildContext context) => new Ajustes(),
         });
   }
 }
@@ -75,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
           fillColor: Colors.white,
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hintText: "Usuario",
+          hintText: "Email",
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       validator: (val) => val.isEmpty ? 'Debes introducir un email' : null,
       onChanged: (val) {

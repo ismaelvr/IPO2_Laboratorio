@@ -40,67 +40,10 @@ class _AppBarBusquedaState extends State<AppBarBusqueda> {
     return WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
-          appBar: AppBar(
-            //automaticallyImplyLeading: false,
-            title: Text('Próximas rutas'),
-            backgroundColor: Colors.orange,
-            actions: <Widget>[
-              IconButton(
-                tooltip: 'Search',
-                icon: const Icon(Icons.search),
-                onPressed: () async {
-                  final String selected = await showSearch<String>(
-                    context: context,
-                    delegate: _delegate,
-                  );
-                  if (selected != null) {
-                    Scaffold.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('You have selected the word: $selected'),
-                      ),
-                    );
-                  }
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.help),
-                onPressed: () {
-                  print(proximasRutas);
-                  _ayuda(context);
-                },
-              )
-            ],
-          ),
           drawer: new Drawer(child: DrawerVista(2)),
-          body: InterfazProximasRutas(
-            onProxRutasChanged: (proxrut) {
-              proximasRutas = proxrut;
-            },
-          ),
-          /*body: Scrollbar(
-            child: ListView.builder(
-              itemCount: kEnglishWords.length,
-              itemBuilder: (context, idx) => ListTile(
-                title: Text(kEnglishWords[idx]),
-              ),
-            ),
-          ),*/
+          body: InterfazProximasRutas(),
         ));
   }
-}
-
-void _ayuda(BuildContext context) {
-  AlertDialog dialogo = new AlertDialog(
-    content: new Text('AYUDA: En implementación'),
-    actions: <Widget>[
-      new FlatButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: new Text("OK")),
-    ],
-  );
-  showDialog(context: context, child: dialogo);
 }
 
 // Defines the content of the search page in `showSearch()`.
@@ -139,20 +82,9 @@ class _MySearchDelegate extends SearchDelegate<String> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Text('You have selected the word:'),
-            GestureDetector(
-              onTap: () {
-                // Returns this.query as result to previous screen, c.f.
-                // `showSearch()` above.
-                this.close(context, this.query);
-              },
-              child: Text(
-                this.query,
-                style: Theme.of(context)
-                    .textTheme
-                    .display1
-                    .copyWith(fontWeight: FontWeight.bold),
-              ),
+            Text(
+              'En implementación',
+              style: TextStyle(fontSize: 40),
             ),
           ],
         ),
@@ -163,9 +95,7 @@ class _MySearchDelegate extends SearchDelegate<String> {
   // Suggestions list while typing (this.query).
   @override
   Widget buildSuggestions(BuildContext context) {
-    final Iterable<String> suggestions = this.query.isEmpty
-        ? _history
-        : _words.where((word) => word.startsWith(query));
+    final Iterable<String> suggestions = this.query.isEmpty ? _history : _words.where((word) => word.startsWith(query));
 
     return _SuggestionList(
       query: this.query,
@@ -240,43 +170,3 @@ class _SuggestionList extends StatelessWidget {
     );
   }
 }
-
-/*
-class Post {
-  final String title;
-  final String description;
-
-  Post(this.title, this.description);
-}
-
-class Busqueda extends StatelessWidget {
-  Future<List<Post>> search(String search) async {
-    await Future.delayed(Duration(seconds: 2));
-    return List.generate(search.length, (int index) {
-      return Post(
-        "Title : $search $index",
-        "Description :$search $index",
-      );
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SearchBar<Post>(
-            onSearch: search,
-            onItemFound: (Post post, int index) {
-              return ListTile(
-                title: Text(post.title),
-                subtitle: Text(post.description),
-              );
-            },
-          ),
-        ),
-      ),
-    );
-  }
-}*/

@@ -45,11 +45,9 @@ class _DetallesRutaProximaState extends State<DetallesRutaProxima> {
             tooltip: "Modificar ruta",
             icon: Icon(Icons.mode_edit),
             onPressed: () {
-              //_mofidicarGrupo(context);
               Route ruta = new MaterialPageRoute(builder: (context) => new ModificarRutaProxima(widget.rutaProxima));
 
               Navigator.push(context, ruta);
-              //ModificarGrupo(widget.grupo);
             },
           ),
           IconButton(
@@ -118,9 +116,9 @@ class _DetallesRutaProximaState extends State<DetallesRutaProxima> {
         marginRight: 30,
         backgroundColor: Colors.orange,
         animatedIcon: AnimatedIcons.search_ellipsis,
-        //animatedIconTheme: IconThemeData(size: 22.0),
         curve: Curves.easeInOutSine,
         onPress: () {
+          Toast.show("En desarrollo", context, duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
           /*  Route ruta = new MaterialPageRoute(builder: (context) => new Maps());
           Navigator.push(context, ruta);*/
         },

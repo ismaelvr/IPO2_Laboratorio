@@ -15,7 +15,8 @@ class Guias extends StatefulWidget {
 class _GuiasState extends State<Guias> {
   void _ayuda(BuildContext context) {
     AlertDialog dialogo = new AlertDialog(
-      content: new Text('AYUDA: En implementación'),
+      content: new Text(
+          'Aquí se pueden visualizar los guías existentes. Para ver más detalles hay que hacer click en uno de ellos. Para añadir guías hay que hacer click en el botón de la parte inferior derecha.'),
       actions: <Widget>[
         new FlatButton(
             onPressed: () {
@@ -72,15 +73,12 @@ class _GuiasState extends State<Guias> {
             marginRight: 30,
             backgroundColor: Colors.orange,
             animatedIcon: AnimatedIcons.add_event,
-            //animatedIconTheme: IconThemeData(size: 22.0),
             curve: Curves.easeInOutSine,
             onPress: () {
-              Route ruta = new MaterialPageRoute(
-                  builder: (context) => new AniadirGuia());
+              Route ruta = new MaterialPageRoute(builder: (context) => new AniadirGuia());
               Navigator.push(context, ruta);
             },
           ),
-          //body: Busqueda(),
         ));
   }
 }

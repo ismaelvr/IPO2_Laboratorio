@@ -4,8 +4,7 @@ import 'package:pr_ipo2/objetos/rutasRealizadas.dart';
 
 class InterfazRutasRealizadas extends StatefulWidget {
   @override
-  _InterfazRutasRealizadasState createState() =>
-      _InterfazRutasRealizadasState();
+  _InterfazRutasRealizadasState createState() => _InterfazRutasRealizadasState();
 }
 
 class _InterfazRutasRealizadasState extends State<InterfazRutasRealizadas> {
@@ -20,7 +19,7 @@ class _InterfazRutasRealizadasState extends State<InterfazRutasRealizadas> {
           "16328",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas. Se podrán observar"
               " una serie de monumentos y se seguirá una línea roja marcada en el mapa que se proporcionará.",
-          "21/3/2020",
+          "18/3/2020",
           10,
           3,
           "Español, Inglés, Alemán",
@@ -34,7 +33,7 @@ class _InterfazRutasRealizadasState extends State<InterfazRutasRealizadas> {
         "04826",
         "Esta ruta se llevará a cabo en la localidad de Valdepeñas. Se podrán observar"
             " una serie de monumentos y se seguirá una línea roja marcada en el mapa que se proporcionará.",
-        "21/3/2020",
+        "21/4/2020",
         6,
         5,
         "Español, Inglés, Sueco",
@@ -49,7 +48,7 @@ class _InterfazRutasRealizadasState extends State<InterfazRutasRealizadas> {
         "92883",
         "Esta ruta se llevará a cabo en la localidad de Valdepeñas. Se podrán observar"
             " una serie de monumentos y se seguirá una línea roja marcada en el mapa que se proporcionará.",
-        "21/3/2020",
+        "12/3/2020",
         10,
         3,
         "Español, Inglés",
@@ -60,11 +59,11 @@ class _InterfazRutasRealizadasState extends State<InterfazRutasRealizadas> {
         5,
       ),
       RutaRealizada(
-        "Porompompero pero",
+        "Ruta de Santa Cruz",
         "22993",
         "Esta ruta se llevará a cabo en la localidad de Valdepeñas. Se podrán observar"
             " una serie de monumentos y se seguirá una línea roja marcada en el mapa que se proporcionará.",
-        "21/3/2020",
+        "2/2/2020",
         10,
         3,
         "Español",
@@ -79,7 +78,7 @@ class _InterfazRutasRealizadasState extends State<InterfazRutasRealizadas> {
           "12345",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas. Se podrán observar"
               " una serie de monumentos y se seguirá una línea roja marcada en el mapa que se proporcionará.",
-          "21/3/2020",
+          "12/1/2020",
           10,
           3,
           "Español, Inglés, Alemán",
@@ -93,7 +92,7 @@ class _InterfazRutasRealizadasState extends State<InterfazRutasRealizadas> {
         "04826",
         "Esta ruta se llevará a cabo en la localidad de Valdepeñas. Se podrán observar"
             " una serie de monumentos y se seguirá una línea roja marcada en el mapa que se proporcionará.",
-        "21/3/2020",
+        "23/3/2020",
         6,
         5,
         "Español, Inglés, Sueco",
@@ -108,7 +107,7 @@ class _InterfazRutasRealizadasState extends State<InterfazRutasRealizadas> {
         "92883",
         "Esta ruta se llevará a cabo en la localidad de Valdepeñas. Se podrán observar"
             " una serie de monumentos y se seguirá una línea roja marcada en el mapa que se proporcionará.",
-        "21/3/2020",
+        "3/1/2020",
         10,
         3,
         "Español, Inglés",
@@ -119,26 +118,11 @@ class _InterfazRutasRealizadasState extends State<InterfazRutasRealizadas> {
         5,
       ),
       RutaRealizada(
-        "Manolo Escobar",
-        "22993",
-        "Esta ruta se llevará a cabo en la localidad de Valdepeñas. Se podrán observar"
-            " una serie de monumentos y se seguirá una línea roja marcada en el mapa que se proporcionará.",
-        "21/3/2020",
-        10,
-        3,
-        "Español",
-        "Suecia, Venecia",
-        8,
-        "assets/villarrubia.png",
-        false,
-        5,
-      ),
-      RutaRealizada(
           "Ruta del vino y se fue",
           "16328",
           "Esta ruta se llevará a cabo en la localidad de Valdepeñas. Se podrán observar"
               " una serie de monumentos y se seguirá una línea roja marcada en el mapa que se proporcionará.",
-          "21/3/2020",
+          "11/2/2020",
           10,
           3,
           "Español, Inglés, Alemán",
@@ -152,7 +136,7 @@ class _InterfazRutasRealizadasState extends State<InterfazRutasRealizadas> {
         "04826",
         "Esta ruta se llevará a cabo en la localidad de Valdepeñas. Se podrán observar"
             " una serie de monumentos y se seguirá una línea roja marcada en el mapa que se proporcionará.",
-        "21/3/2020",
+        "1/3/2020",
         6,
         5,
         "Español, Inglés, Sueco",
@@ -178,11 +162,11 @@ class _InterfazRutasRealizadasState extends State<InterfazRutasRealizadas> {
         5,
       ),
       RutaRealizada(
-        "Porompompero pero",
+        "Ruta de pan",
         "22993",
         "Esta ruta se llevará a cabo en la localidad de Valdepeñas. Se podrán observar"
             " una serie de monumentos y se seguirá una línea roja marcada en el mapa que se proporcionará.",
-        "21/3/2020",
+        "22/2/2020",
         10,
         3,
         "Español",
@@ -198,8 +182,6 @@ class _InterfazRutasRealizadasState extends State<InterfazRutasRealizadas> {
   @override
   Widget build(BuildContext context) {
     return new ListView.builder(
-        itemCount: rutas.length,
-        itemBuilder: (context, int item) =>
-            new ItemRutasRealizadas(rutas[item]));
+        itemCount: rutas.length, itemBuilder: (context, int item) => new ItemRutasRealizadas(rutas[item]));
   }
 }

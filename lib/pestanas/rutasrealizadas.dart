@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:pr_ipo2/objetos/drawer.dart';
 import 'package:pr_ipo2/interfaces/interfazRutasRealizadas.dart';
 
@@ -12,7 +11,8 @@ class RutasRealizadas extends StatefulWidget {
 class _RutasRealizadasState extends State<RutasRealizadas> {
   void _ayuda(BuildContext context) {
     AlertDialog dialogo = new AlertDialog(
-      content: new Text('AYUDA: En implementación'),
+      content: new Text(
+          'Aquí se pueden visualizar las rutas que ya han sido realizadas. Para ver más detalles hay que hacer click en una de ellas.'),
       actions: <Widget>[
         new FlatButton(
             onPressed: () {
@@ -63,21 +63,6 @@ class _RutasRealizadasState extends State<RutasRealizadas> {
           ),
           drawer: new Drawer(child: DrawerVista(1)),
           body: new InterfazRutasRealizadas(),
-          /*floatingActionButton: SpeedDial(
-            tooltip: "Añadir grupo",
-            marginBottom: 50,
-            marginRight: 30,
-            backgroundColor: Colors.orange,
-            animatedIcon: AnimatedIcons.add_event,
-            //animatedIconTheme: IconThemeData(size: 22.0),
-            curve: Curves.easeInOutSine,
-            onPress: () {
-              /*Route ruta = new MaterialPageRoute(
-                  builder: (context) => new AniadirRutaRealizadas());
-              Navigator.push(context, ruta);*/
-              //no hay que añadir rutas REALIZADAS no?
-            },
-          ),*/
         ));
   }
 }

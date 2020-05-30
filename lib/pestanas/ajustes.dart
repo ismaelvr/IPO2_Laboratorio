@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:pr_ipo2/interfaces/interfazPrincipal.dart';
-import 'package:pr_ipo2/objetos/drawer.dart';
+import 'package:pr_ipo2/interfaces/interfazAjustes.dart';
 
-class Principal extends StatefulWidget {
-  static const nombreRuta = "/principal";
+class Ajustes extends StatefulWidget {
+  static const nombreRuta = "/ajustes";
   @override
-  _PrincipalState createState() => _PrincipalState();
+  _AjustesState createState() => _AjustesState();
 }
 
-class _PrincipalState extends State<Principal> {
+class _AjustesState extends State<Ajustes> {
   void _ayuda(BuildContext context) {
     AlertDialog dialogo = new AlertDialog(
-      content:
-          new Text('Aquí se podrán visualizar los datos del administrador, además de las rutas, promociones y guías destacados.'),
+      content: new Text('Aquí se podrá modificar la configuración de la app.'),
       actions: <Widget>[
         new FlatButton(
             onPressed: () {
@@ -27,7 +25,7 @@ class _PrincipalState extends State<Principal> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: () async => false,
+        onWillPop: () async => true,
         child: Scaffold(
           appBar: new AppBar(
             actions: [
@@ -41,8 +39,7 @@ class _PrincipalState extends State<Principal> {
             title: new Text("Gestor de rutas: TU-RURAL"),
             backgroundColor: Colors.orange,
           ),
-          drawer: new Drawer(child: DrawerVista(0)),
-          body: new InterfazPrincipal(),
+          body: new InterfazAjustes(),
         ));
   }
 }

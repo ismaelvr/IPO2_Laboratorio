@@ -164,7 +164,6 @@ class _ModificarGrupoState extends State<ModificarGrupo> {
                         // FOTO
                         new Container(
                             margin: const EdgeInsets.fromLTRB(70, 0, 70, 0),
-                            //padding: const EdgeInsets.all(10.0),
                             decoration: const BoxDecoration(
                               border: Border(
                                 top: BorderSide(width: 2.0, color: Colors.grey),

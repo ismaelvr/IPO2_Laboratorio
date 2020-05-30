@@ -1,7 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:pr_ipo2/interfaces/EnviarPromociones.dart';
-import 'package:pr_ipo2/interfaces/ModificarGuia.dart';
 import 'package:pr_ipo2/interfaces/ModificarPromocion.dart';
 import 'package:pr_ipo2/objetos/promocion.dart';
 import 'package:toast/toast.dart';
@@ -45,11 +43,8 @@ class _DetallesPromocionState extends State<DetallesPromocion> {
             tooltip: "Modificar promoción",
             icon: Icon(Icons.mode_edit),
             onPressed: () {
-              //_mofidicarGrupo(context);
               Route ruta = new MaterialPageRoute(builder: (context) => new ModificarPromocion(widget.promocion));
-
               Navigator.push(context, ruta);
-              //ModificarGrupo(widget.grupo);
             },
           ),
           IconButton(

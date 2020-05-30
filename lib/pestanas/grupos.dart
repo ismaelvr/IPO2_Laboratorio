@@ -13,7 +13,8 @@ class Grupos extends StatefulWidget {
 class _GruposState extends State<Grupos> {
   void _ayuda(BuildContext context) {
     AlertDialog dialogo = new AlertDialog(
-      content: new Text('AYUDA: En implementación'),
+      content: new Text(
+          'Aquí se pueden visualizar los grupos de turistas existentes. Para ver más detalles hay que hacer click en uno de ellos. Para añadir grupos hay que hacer click en el botón de la parte inferior derecha.'),
       actions: <Widget>[
         new FlatButton(
             onPressed: () {
@@ -78,36 +79,10 @@ class _GruposState extends State<Grupos> {
             //animatedIconTheme: IconThemeData(size: 22.0),
             curve: Curves.easeInOutSine,
             onPress: () {
-              Route ruta = new MaterialPageRoute(
-                  builder: (context) => new AniadirGrupo());
+              Route ruta = new MaterialPageRoute(builder: (context) => new AniadirGrupo());
               Navigator.push(context, ruta);
             },
-            /*children: [
-              SpeedDialChild(
-                child: Icon(Icons.add, color: Colors.white),
-                backgroundColor: Colors.deepOrange,
-                label: 'Añadir Lo que te salga los huevos',
-                labelStyle: TextStyle(fontWeight: FontWeight.w500),
-                labelBackgroundColor: Colors.deepOrangeAccent,
-              ),
-              SpeedDialChild(
-                child: Icon(Icons.send, color: Colors.white),
-                backgroundColor: Colors.green,
-                label: 'Enviar un nabo',
-                labelStyle: TextStyle(fontWeight: FontWeight.w500),
-                labelBackgroundColor: Colors.green,
-              ),
-            ],*/
           ),
-          /*floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              // Add your onPressed code here!
-            },
-            child: Icon(Icons.add),
-            backgroundColor: Colors.orange,
-          ),*/
-
-          //body: Busqueda(),
         ));
   }
 }

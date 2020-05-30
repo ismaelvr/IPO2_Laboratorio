@@ -202,31 +202,31 @@ class InterfazPrincipal extends StatelessWidget {
                               correo: "pedro@gmail.com",
                               idiomas: "Español, inglés",
                               valoracion: 1,
-                              foto: "assets/ismael.jpg"),
+                              foto: "assets/pedro.jpg"),
                         ),
                       ),
                       Container(
                         width: 350.0,
                         child: new Center(
                           child: new GuiasDestacados(
-                              nombre: "Antonio",
+                              nombre: "Bisbal",
                               id: "43424",
-                              correo: "antonio@gmail.com",
+                              correo: "elbisbo@gmail.com",
                               idiomas: "Italiano",
                               valoracion: 5,
-                              foto: "assets/ismael.jpg"),
+                              foto: "assets/bisbal.png"),
                         ),
                       ),
                       Container(
                         width: 350.0,
                         child: new Center(
                           child: new GuiasDestacados(
-                              nombre: "Carmen",
+                              nombre: "Pedro 2",
                               id: "7986786",
-                              correo: "carmen@gmail.com",
+                              correo: "elpedro@gmail.com",
                               idiomas: "Español, portugues",
                               valoracion: 4,
-                              foto: "assets/ismael.jpg"),
+                              foto: "assets/pedro.jpg"),
                         ),
                       ),
                     ],

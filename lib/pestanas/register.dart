@@ -19,14 +19,6 @@ class _RegisterState extends State<Register> {
   String _usuario = "";
   String _contrasena = "";
 
-  /* void _irRutaRegister(BuildContext context) {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Register(),
-        ));
-  }*/
-
   @override
   Widget build(BuildContext context) {
     final usuarioField = TextFormField(
@@ -36,9 +28,8 @@ class _RegisterState extends State<Register> {
           fillColor: Colors.white,
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hintText: "Usuario",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          hintText: "Email",
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       validator: (val) => val.isEmpty ? 'Debes introducir un email' : null,
       onChanged: (val) {
         setState(() => _usuario = val);
@@ -46,17 +37,14 @@ class _RegisterState extends State<Register> {
     );
     final contrasenaField = TextFormField(
       obscureText: true,
-      validator: (val) => val.length < 6
-          ? 'La contraseña debe tener más de 6 caracteres'
-          : null,
+      validator: (val) => val.length < 6 ? 'La contraseña debe tener más de 6 caracteres' : null,
       style: style,
       decoration: InputDecoration(
           fillColor: Colors.white,
           filled: true,
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Contraseña",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
       onChanged: (val) {
         setState(() => _contrasena = val);
       },
@@ -101,15 +89,11 @@ class _RegisterState extends State<Register> {
 
                 showDialog(context: context, child: dialogo);
               });
-            } else {
-              //_irRutaHome(context);
-            }
+            } else {}
           }
         },
         child: Text("Crear cuenta",
-            textAlign: TextAlign.center,
-            style: style.copyWith(
-                color: Colors.white, fontWeight: FontWeight.bold)),
+            textAlign: TextAlign.center, style: style.copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
       ),
     );
     final cancelButon = Material(
@@ -123,9 +107,7 @@ class _RegisterState extends State<Register> {
           Navigator.pop(context);
         },
         child: Text("Cancelar",
-            textAlign: TextAlign.center,
-            style: style.copyWith(
-                color: Colors.white, fontWeight: FontWeight.bold)),
+            textAlign: TextAlign.center, style: style.copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
       ),
     );
 
@@ -175,12 +157,4 @@ class _RegisterState extends State<Register> {
       )),
     );
   }
-
-  /*void _irRutaHome(BuildContext context) {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Principal(),
-        ));
-  }*/
 }

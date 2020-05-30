@@ -1,8 +1,4 @@
 import "package:flutter/material.dart";
-import 'package:pr_ipo2/interfaces/AniadirPromocion.dart';
-
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-
 import 'interfazEnviarPromociones.dart';
 
 class EnviarPromociones extends StatefulWidget {
@@ -60,15 +56,15 @@ class _EnviarPromocionesState extends State<EnviarPromociones> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: () async => false,
+        onWillPop: () async => true,
         child: Scaffold(
           appBar: new AppBar(
-            automaticallyImplyLeading: false,
             actions: [
               IconButton(
                 tooltip: "Ayuda",
                 icon: Icon(Icons.help),
                 onPressed: () {
+                  Navigator.pop(context);
                   _ayuda(context);
                 },
               )
@@ -79,54 +75,18 @@ class _EnviarPromocionesState extends State<EnviarPromociones> {
           body: new InterfazEnviarPromociones(),
 
           // FLOATING ACTION BUTTON
-          floatingActionButton: Stack(
-            children: <Widget>[
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 10, 70, 35),
-                  child: FloatingActionButton(
-                    heroTag: "Cancel",
-                    tooltip: "Cancelar",
-                    child: Icon(Icons.arrow_back),
-                    backgroundColor: Colors.orange,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 10, 5, 35),
-                  child: FloatingActionButton(
-                    heroTag: "Confirmar",
-                    tooltip: "Confirmar envío",
-                    child: Icon(Icons.send),
-                    backgroundColor: Colors.orange,
-                    onPressed: () {
-                      _enviarProm(context);
-                      /*Route ruta = new MaterialPageRoute(builder: (context) => new EnviarPromociones());
-                Navigator.push(context, ruta);*/
-                    },
-                  ),
-                ),
-              ),
-            ],
-          ),
-          /*floatingActionButton: Padding(
+
+          floatingActionButton: Padding(
             padding: const EdgeInsets.fromLTRB(10, 10, 15, 35),
             child: FloatingActionButton(
               tooltip: "Enviar promoción",
               child: Icon(Icons.send),
               backgroundColor: Colors.orange,
               onPressed: () {
-                /*Route ruta = new MaterialPageRoute(builder: (context) => new EnviarPromociones());
-                Navigator.push(context, ruta);*/
+                _enviarProm(context);
               },
             ),
-          ),*/
+          ),
         ));
   }
 }

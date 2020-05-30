@@ -1,6 +1,4 @@
 import "package:flutter/material.dart";
-import 'package:pr_ipo2/objetos/rutasProximas.dart';
-import 'package:pr_ipo2/pestanas/proximasrutas.dart';
 import 'package:toast/toast.dart';
 //import 'package:image_picker_modern/image_picker_modern.dart';
 

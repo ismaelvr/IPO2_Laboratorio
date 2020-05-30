@@ -18,14 +18,12 @@ class _ItemRutasProximasState extends State<ItemRutasProximas> {
       new ListTile(
         selected: widget._ruta.isSelected,
         leading: Container(
-            //color: widget._ruta.isSelected ? Colors.red : null,
             width: 60.0,
             height: 60.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(const Radius.circular(60.0)),
                 color: Colors.transparent,
-                image: DecorationImage(
-                    fit: BoxFit.cover, image: AssetImage(widget._ruta.foto)))),
+                image: DecorationImage(fit: BoxFit.cover, image: AssetImage(widget._ruta.foto)))),
         title: new Row(
           children: <Widget>[
             new Text(
@@ -53,32 +51,10 @@ class _ItemRutasProximasState extends State<ItemRutasProximas> {
           padding: const EdgeInsets.only(top: 5.0),
         ),
         onTap: () {
-          Route route = new MaterialPageRoute(
-              builder: (context) =>
-                  new DetallesRutaProxima(rutaProxima: widget._ruta));
+          Route route = new MaterialPageRoute(builder: (context) => new DetallesRutaProxima(rutaProxima: widget._ruta));
           Navigator.push(context, route);
         },
-        onLongPress: () {
-          /*setState(() {
-            widget._ruta.isSelected = true;
-          });*/
-
-          /*Como hacer el menú contextual????*/
-          /*Container(
-            margin: EdgeInsets.symmetric(vertical: 10),
-            height: 100,
-            width: 100,
-            child: PopupMenuButton(
-              child: FlutterLogo(),
-              itemBuilder: (context) {
-                return <PopupMenuItem>[
-                  new PopupMenuItem(child: Text('Modificar')),
-                  new PopupMenuItem(child: Text('Borrar')),
-                ];
-              },
-            ),
-          );*/
-        },
+        onLongPress: () {},
       )
     ]);
   }

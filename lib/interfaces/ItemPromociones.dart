@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import "package:pr_ipo2/objetos/promocion.dart";
-import 'package:pr_ipo2/interfaces/DetallesGuias.dart';
 
 import 'DetallesPromociones.dart';
 
@@ -40,16 +39,6 @@ class ItemPromocion extends StatelessWidget {
           ],
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
         ),
-        /*subtitle: new Container(
-          child: new Text(
-            _promocion.idiomas.toString(),
-            style: new TextStyle(
-              fontSize: 15.0,
-              color: Colors.grey,
-            ),
-          ),
-          padding: const EdgeInsets.only(top: 5.0),
-        ),*/
         onTap: () {
           Route ruta = new MaterialPageRoute(builder: (context) => new DetallesPromocion(promocion: _promocion));
           Navigator.push(context, ruta);

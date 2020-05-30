@@ -42,11 +42,8 @@ class _DetallesGuiasState extends State<DetallesGuias> {
               tooltip: "Modificar guía",
               icon: Icon(Icons.mode_edit),
               onPressed: () {
-                //_mofidicarGrupo(context);
                 Route ruta = new MaterialPageRoute(builder: (context) => new ModificarGuia(widget.guia));
-
                 Navigator.push(context, ruta);
-                //ModificarGrupo(widget.grupo);
               },
             ),
             IconButton(

@@ -3,7 +3,6 @@ import "package:pr_ipo2/objetos/guia.dart";
 import 'package:pr_ipo2/interfaces/DetallesGuias.dart';
 
 class ItemGuias extends StatelessWidget {
-  // final Ruta _ruta;
   final Guia _guia;
 
   ItemGuias(this._guia);
@@ -19,8 +18,7 @@ class ItemGuias extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(const Radius.circular(60.0)),
                 color: Colors.transparent,
-                image: DecorationImage(
-                    fit: BoxFit.cover, image: AssetImage(_guia.foto)))),
+                image: DecorationImage(fit: BoxFit.cover, image: AssetImage(_guia.foto)))),
         title: new Row(
           children: <Widget>[
             new Text(
@@ -48,10 +46,7 @@ class ItemGuias extends StatelessWidget {
           padding: const EdgeInsets.only(top: 5.0),
         ),
         onTap: () {
-          //_ruta.removeWhere((item) => item.id == '001');
-
-          Route ruta = new MaterialPageRoute(
-              builder: (context) => new DetallesGuias(guia: _guia));
+          Route ruta = new MaterialPageRoute(builder: (context) => new DetallesGuias(guia: _guia));
           Navigator.push(context, ruta);
         },
         /*onLongPress: (){
